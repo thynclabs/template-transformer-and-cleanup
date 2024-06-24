@@ -1,3 +1,4 @@
+name: template-transformer-and-cleanup
 description: Adds a file (abc.txt) and commits it to the repository
 
 inputs:
@@ -6,7 +7,7 @@ inputs:
     required: false
 
 runs:
-  using: 'composite'
+  using: 'composhttps://github.com/thynclabs/template-transformer-and-cleanup/tree/mainite'
   steps:
     - name: Checkout repository
       uses: actions/checkout@v2
