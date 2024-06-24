@@ -11,6 +11,7 @@ echo "hello" >> test.txt
 ls
 cat package.json
 cat .github/ISSUE_TEMPLATE/bug_report.yaml
+cat test.txt
 
 #Delete the .github folder
 #if [ -d ".github" ]; then
