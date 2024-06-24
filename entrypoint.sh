@@ -8,7 +8,7 @@ export LANG=C.UTF-8
 # Replace "npm-template" with the new repository name in all files
 find . -type f -exec sed -i '' "s/npm-template/${INPUT_TEXT}/g" {} +
 
-cat package.json
+ls
 
 #Delete the .github folder
 #if [ -d ".github" ]; then
