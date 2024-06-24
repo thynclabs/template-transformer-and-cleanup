@@ -3,7 +3,7 @@ description: Adds a file (abc.txt) and commits it to the repository
 inputs:
   github-token:
     description: 'GitHub Token'
-    required: true
+    required: false
 
 runs:
   using: 'composite'
