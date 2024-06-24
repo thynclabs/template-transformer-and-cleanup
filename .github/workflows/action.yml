@@ -1,0 +1,12 @@
+name: 'Replace and Delete Action'
+description: 'Replace a keyword in all files and delete .github folder'
+
+inputs:
+  repo-name:
+    description: 'New repository name to replace "my-template"'
+    required: true
+    default: ${{ github.repository }}
+
+runs:
+  using: 'bash'
+  main: './action.sh'
