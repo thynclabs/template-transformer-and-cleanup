@@ -5,11 +5,7 @@ inputs:
   text-to-replace:
     description: 'New repository name to replace "my-template"'
     required: true
-  text:
-    description: 'New repository name to replace "my-template"'
-    required: true
-    default: ${{ github.repository }}
 
 runs:
   using: 'bash'
-  main: './action.sh'
+  main: './action.sh ${{github.repository}}'

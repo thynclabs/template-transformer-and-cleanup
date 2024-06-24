@@ -2,13 +2,15 @@
 
 set -e
 
-TEXT_TO_REPLACE=$INPUT_TEXT_TO_REPLACE
-TEXT=$INPUT_TEXT
+# Set LANG environment variable
+export LANG=C.UTF-8
 
-# Replace "my-template" with the new repository name in all files
-find . -type f -exec sed -i '' "s/$TEXT/$TEXT_TO_REPLACE/g" {} +
+REPO_NAME=$1
 
- Delete the .github folder
+# Replace "npm-template" with the new repository name in all files
+find . -type f -exec sed -i '' "s/npm-template/$REPO_NAME/g" {} +
+
+#Delete the .github folder
 if [ -d ".github" ]; then
   rm -rf .github
 fi
