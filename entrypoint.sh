@@ -7,7 +7,7 @@ export LANG=C.UTF-8
 
 # Replace "npm-template" with the new repository name in all files
 find /github/workspace -type f -exec sed -i 's/npm-template/script/g' {} +
-sed -i 's/npm-template/script/g' /github/workspace/package.json
+# sed -i 's/npm-template/script/g' /github/workspace/package.json
 
 ls
 cat package.json
