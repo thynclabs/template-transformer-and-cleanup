@@ -9,8 +9,8 @@ export LANG=C.UTF-8
 # find /github/workspace -type f -exec sed -i 's/npm-template/script/g' {} +
 echo "hello" >> test.txt
 ls
-cat package.json
-cat .github/ISSUE_TEMPLATE/bug_report.yaml
+# cat package.json
+# cat .github/ISSUE_TEMPLATE/bug_report.yaml
 cat test.txt
 
 #Delete the .github folder
