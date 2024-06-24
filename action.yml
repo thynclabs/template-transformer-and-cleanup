@@ -1,11 +1,23 @@
-name: 'Replace and Delete Action'
-description: 'Replace a keyword in all files and delete .github folder'
+description: Adds a file (abc.txt) and commits it to the repository
 
 inputs:
-  text-to-replace:
-    description: 'New repository name to replace "my-template"'
+  github-token:
+    description: 'GitHub Token'
     required: true
 
 runs:
-  using: 'bash'
-  main: './action.sh ${{github.repository}}'
+  using: 'composite'
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Create abc.txt file
+      run: echo "Hello, World!" > abc.txt
+
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add abc.txt
+        git commit -m "Add abc.txt via GitHub Action"
+        git push
