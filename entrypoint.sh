@@ -11,6 +11,7 @@ find /github/workspace -type f -exec sed -i 's/npm-template/script/g' {} +
 
 ls
 cat package.json
+cat .github/ISSUE_TEMPLATE/bug_report.yaml
 
 #Delete the .github folder
 #if [ -d ".github" ]; then
