@@ -2,15 +2,16 @@
 
 set -e
 
-REPO_NAME=$1
+TEXT_TO_REPLACE=$INPUT_TEXT_TO_REPLACE
+TEXT=$INPUT_TEXT
 
 # Replace "my-template" with the new repository name in all files
-find . -type f -exec sed -i '' "s/abcd/$REPO_NAME/g" {} +
+find . -type f -exec sed -i '' "s/$TEXT/$TEXT_TO_REPLACE/g" {} +
 
-# Delete the .github folder
-#if [ -d ".github" ]; then
-#  rm -rf .github
-#fi
+ Delete the .github folder
+if [ -d ".github" ]; then
+  rm -rf .github
+fi
 
 # Commit changes
 git config --local user.email "actions@github.com"
