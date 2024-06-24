@@ -1,11 +1,16 @@
-name: 'Replace and Delete Action'
-description: 'Replace a keyword in all files and delete .github folder'
+name: 'template-transformer-and-cleanup'
+author: 'thynclabs'
+description: 'ztodo'
 
 inputs:
-  text-to-replace:
-    description: 'New repository name to replace "my-template"'
+  text:
+    description: 'Text to replace'
     required: true
-
 runs:
-  using: 'bash'
-  main: './action.sh ${{github.repository}}'
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.text }}
+branding:
+  icon: terminal
+  color: green
