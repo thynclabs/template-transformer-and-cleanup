@@ -1,18 +1,40 @@
-name: 'template-transformer-and-cleanup'
-author: 'thynclabs'
-description: 'ztodo'
-
+name: 'Template Cleanup Action'
+description: 'Replace the template repository name in all files with a new value, and push the changes to the branch.'
+author: 'Thync Labs'
+branding:
+  icon: terminal
+  color: green
 inputs:
-  text:
-    description: 'Text to replace'
+  search-keyword:
+    description: 'The string to replace in all files'
     required: true
+  replace-keyword:
+    description: 'The string to replace the search-keyword with'
+    required: true
+  github_url:
+    description: 'GitHub url or GitHub Enterprise url'
+    required: false
+    default: ${{ github.server_url }}
+  workflow_token:
+    description: 'PAT token with workflow permissions'
+    required: true
+  repository:
+    description: 'Repository name'
+    required: true
+    default: ${{ github.repository }}
+  branch:
+    description: 'Destination branch to push changes'
+    required: false
+    default: ${{ github.ref }}
 runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   args:
-    - ${{ inputs.text }}
-branding:
-  icon: terminal
-  color: green
+    - ${{ inputs.search-keyword }}
+    - ${{ inputs.replace-keyword }}
+    - ${{ inputs.github_url }}
+    - ${{ inputs.workflow_token }}
+    - ${{ inputs.repository }}
+    - ${{ inputs.branch }}
