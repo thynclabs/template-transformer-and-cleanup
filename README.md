@@ -55,8 +55,8 @@ jobs:
       - name: Template Cleanup Action
         uses: thynclabs/template-transformer-and-cleanup@1.0.2
         with:
-          search-keyword: 'thynclabs/npm-template'
-          replace-keyword: ${{ github.repository }}
+          search_keyword: 'thynclabs/npm-template'
+          replace_keyword: ${{ github.repository }}
           github_url: ${{ github.server_url }}
           workflow_token: ${{ secrets.WORKFLOW_TOKEN }}
           repository: ${{ github.repository }}
