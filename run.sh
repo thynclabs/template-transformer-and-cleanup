@@ -49,6 +49,8 @@ process_directory() {
 process_directory "./" "${INPUT_SEARCH_KEYWORD}" "${INPUT_REPLACE_KEYWORD}"
 
 git config --global --add safe.directory /github/workspace
+git config --global user.email "actions@github.com"
+git config --global user.name "GitHub Actions"
 
 git add .
 git commit -am "Replace keyword ${INPUT_SEARCH_KEYWORD} with ${INPUT_REPLACE_KEYWORD}"
