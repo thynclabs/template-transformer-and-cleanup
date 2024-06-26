@@ -69,10 +69,10 @@ The following inputs are supported by the GitHub Action:
 
 | Input              | Description                                                                                   | Default Value                |
 |--------------------|-----------------------------------------------------------------------------------------------|------------------------------|
-| **search_keyword** | The keyword to search for in the template repository.                                          |                              |
-| **replace_keyword**| The value to replace the search keyword with.                                                   |                              |
-| **github_url**     | The GitHub server URL. Default value is `${{ github.server_url }}`.                             | `${{ github.server_url }}`   |
-| **workflow_token** | The GitHub personal access token with `workflow` and `repo` scopes.                             |                              |
-| **repository**     | The repository name. Default value is `${{ github.repository }}`.                               | `${{ github.repository }}`   |
-| **branch**         | The branch name. Default value is `${{ github.ref }}`.                                           | `${{ github.ref }}`           |
+| **search_keyword** | The keyword to search for in the template repository.                                         |                              |
+| **replace_keyword**| The value to replace the search keyword with.                                                 | `${{ github.repository }}`   |
+| **github_url**     | The GitHub server URL. Default value is `${{ github.server_url }}`.                           | `${{ github.server_url }}`   |
+| **workflow_token** | The GitHub personal access token with `workflow` and `repo` scopes.                           |                              |
+| **repository**     | The repository name. Default value is `${{ github.repository }}`.                             | `${{ github.repository }}`   |
+| **branch**         | The branch name. Default value is `${{ github.ref }}`.                                        | `${{ github.ref }}`          |
 
