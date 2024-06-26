@@ -8,10 +8,10 @@ RUN apk add --no-cache \
   git
 
 # Copies your code file  repository to the filesystem
-COPY run.sh /run.sh
+COPY run.sh run.sh
 
 # change permission to execute the script and
-RUN chmod +x /run.sh
+RUN chmod +x run.sh
 
 # file to execute when the docker container starts up
-ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ["./run.sh"]
