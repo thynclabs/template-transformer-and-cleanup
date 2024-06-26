@@ -57,11 +57,11 @@ echo "${INPUT_REPLACE_KEYWORD}"
 # Process the given directory
 process_directory "." "${INPUT_SEARCH_KEYWORD}" "${INPUT_REPLACE_KEYWORD}"
 
+rm -rf .github/workflows/default-workflow.yml
+
 git config --global --add safe.directory /github/workspace
 git config --local user.email "actions@github.com"
 git config --local user.name "GitHub Actions"
-
-cat package.json
 
 git add .
 git commit -am "Replace keyword ${INPUT_SEARCH_KEYWORD} with ${INPUT_REPLACE_KEYWORD}"
