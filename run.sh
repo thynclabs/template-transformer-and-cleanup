@@ -59,6 +59,11 @@ GITHUB_URL=$(trim "${INPUT_GITHUB_URL}")
 # Extract the protocol (e.g., 'https:' or 'http:')
 GITHUB_URL_PROTOCOL=$(echo "$GITHUB_URL" | cut -d'/' -f1)
 
-remote_repo="$GITHUB_URL_PROTOCOL//oauth2:${INPUT_WORKFLOW_TOKEN}@$GITHUB_URL/${INPUT_REPOSITORY}.git"
+# Extract the rest of the URL (e.g., 'github.com/user/repo')
+GITHUB_URL_HOST=$(echo "$GITHUB_URL" | cut -d'/' -f3-)
 
-git push "${remote_repo} HEAD:${INPUT_BRANCH}";
+# Construct the remote repository URL
+remote_repo="${GITHUB_URL_PROTOCOL}//oauth2:${INPUT_WORKFLOW_TOKEN}@${GITHUB_URL_HOST}/${INPUT_REPOSITORY}.git"
+
+# Push to the remote repository
+git push "${remote_repo}" HEAD:"${INPUT_BRANCH}"
