@@ -29,10 +29,17 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.search-keyword }}
-    - ${{ inputs.replace-keyword }}
-    - ${{ inputs.github_url }}
-    - ${{ inputs.workflow_token }}
-    - ${{ inputs.repository }}
-    - ${{ inputs.branch }}
+  env:
+    INPUT_SEARCH-KEYWORD: ${{ inputs.search-keyword }}
+    INPUT_REPLACE-KEYWORD: ${{ inputs.replace-keyword }}
+    INPUT_GITHUB_URL: ${{ inputs.github_url }}
+    INPUT_WORKFLOW_TOKEN: ${{ inputs.workflow_token }}
+    INPUT_REPOSITORY: ${{ inputs.repository }}
+    INPUT_BRANCH: ${{ inputs.branch }}
+#  args:
+#    - ${{ inputs.search-keyword }}
+#    - ${{ inputs.replace-keyword }}
+#    - ${{ inputs.github_url }}
+#    - ${{ inputs.workflow_token }}
+#    - ${{ inputs.repository }}
+#    - ${{ inputs.branch }}
