@@ -48,8 +48,8 @@ process_directory() {
 # Process the given directory
 process_directory "./" "${INPUT_SEARCH_KEYWORD}" "${INPUT_REPLACE_KEYWORD}"
 
-#git add .
-#git commit -am "Replace keyword ${INPUT_SEARCH_KEYWORD} with ${INPUT_REPLACE_KEYWORD}"
+git add .
+git commit -am "Replace keyword ${INPUT_SEARCH_KEYWORD} with ${INPUT_REPLACE_KEYWORD}"
 
 # Get the GITHUB_URL environment variable and trim it
 GITHUB_URL=$(trim "${INPUT_GITHUB_URL}")
@@ -59,4 +59,4 @@ GITHUB_URL_PROTOCOL=$(echo "$GITHUB_URL" | cut -d'/' -f1)
 
 remote_repo="$GITHUB_URL_PROTOCOL//oauth2:${INPUT_WORKFLOW_TOKEN}@$GITHUB_URL/${INPUT_REPOSITORY}.git"
 
-echo "${remote_repo} HEAD:${INPUT_BRANCH}";
+git push "${remote_repo} HEAD:${INPUT_BRANCH}";
