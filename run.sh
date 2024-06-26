@@ -30,7 +30,7 @@ process_directory() {
     local replace=$3
 
     # Iterate over all files and directories within the given directory
-    for item in "$dir"/*; {
+    for item in "$dir"/*; do
         if [ -d "$item" ]; then
             # If the item is a directory, recursively process it
             process_directory "$item" "$search" "$replace"
@@ -38,7 +38,7 @@ process_directory() {
             # If the item is a file, replace the keyword in it
             replace_keyword "$item" "$search" "$replace"
         fi
-    }
+    done
 }
 
 # Get script arguments
@@ -55,12 +55,12 @@ cd /github/workspace
 
 ls
 
-#git config --local --add safe.directory /github/workspace
+git config --global --add safe.directory /github/workspace
 git config --local user.email "actions@github.com"
 git config --local user.name "GitHub Actions"
 
 git status
-#
+
 #printenv
 #ls
 #cat package.json
