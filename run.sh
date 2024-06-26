@@ -6,8 +6,18 @@ replace_keyword() {
     local search=$2
     local replace=$3
 
+    echo "Processing file: $file"
+
+    # Print the content of the file before replacement
+    echo "Content of $file before replacement:"
+    cat "$file"
+
     # Use awk to replace the keyword and create a temporary file
     awk -v search="$search" -v replace="$replace" '{gsub(search, replace); print}' "$file" > "$file.tmp"
+
+    # Print the content of the temporary file after replacement
+    echo "Content of $file.tmp after replacement:"
+    cat "$file.tmp"
 
     # Move the temporary file to the original file
     mv "$file.tmp" "$file"
@@ -49,10 +59,7 @@ echo "${INPUT_SEARCH_KEYWORD}"
 echo "${INPUT_REPLACE_KEYWORD}"
 
 # Process the given directory
-process_directory "/github/workspace" "${INPUT_SEARCH_KEYWORD}" "${INPUT_REPLACE_KEYWORD}"
-
-cd /github/workspace
-
+process_directory "./" "${INPUT_SEARCH_KEYWORD}" "${INPUT_REPLACE_KEYWORD}"
 ls
 
 git config --global --add safe.directory /github/workspace
