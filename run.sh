@@ -51,28 +51,30 @@ echo "${INPUT_REPLACE_KEYWORD}"
 # Process the given directory
 process_directory "./" "${INPUT_SEARCH_KEYWORD}" "${INPUT_REPLACE_KEYWORD}"
 
-git config --global --add safe.directory /github/workspace
-git config --global user.email "actions@github.com"
-git config --global user.name "GitHub Actions"
+#git config --local --add safe.directory /github/workspace
+git config --local user.email "actions@github.com"
+git config --local user.name "GitHub Actions"
 
 git status
-ls
-cat package.json
-
-git add .
-git commit -am "Replace keyword ${INPUT_SEARCH_KEYWORD} with ${INPUT_REPLACE_KEYWORD}"
-
-# Get the GITHUB_URL environment variable and trim it
-GITHUB_URL=$(trim "${INPUT_GITHUB_URL}")
-
-# Extract the protocol (e.g., 'https:' or 'http:')
-GITHUB_URL_PROTOCOL=$(echo "$GITHUB_URL" | cut -d'/' -f1)
-
-# Extract the rest of the URL (e.g., 'github.com/user/repo')
-GITHUB_URL_HOST=$(echo "$GITHUB_URL" | cut -d'/' -f3-)
-
-# Construct the remote repository URL
-remote_repo="${GITHUB_URL_PROTOCOL}//oauth2:${INPUT_WORKFLOW_TOKEN}@${GITHUB_URL_HOST}/${INPUT_REPOSITORY}.git"
-
-# Push to the remote repository
-git push "${remote_repo}" HEAD:"${INPUT_BRANCH}"
+#
+#printenv
+#ls
+#cat package.json
+#
+#git add .
+#git commit -am "Replace keyword ${INPUT_SEARCH_KEYWORD} with ${INPUT_REPLACE_KEYWORD}"
+#
+## Get the GITHUB_URL environment variable and trim it
+#GITHUB_URL=$(trim "${INPUT_GITHUB_URL}")
+#
+## Extract the protocol (e.g., 'https:' or 'http:')
+#GITHUB_URL_PROTOCOL=$(echo "$GITHUB_URL" | cut -d'/' -f1)
+#
+## Extract the rest of the URL (e.g., 'github.com/user/repo')
+#GITHUB_URL_HOST=$(echo "$GITHUB_URL" | cut -d'/' -f3-)
+#
+## Construct the remote repository URL
+#remote_repo="${GITHUB_URL_PROTOCOL}//oauth2:${INPUT_WORKFLOW_TOKEN}@${GITHUB_URL_HOST}/${INPUT_REPOSITORY}.git"
+#
+## Push to the remote repository
+#git push "${remote_repo}" HEAD:"${INPUT_BRANCH}"
