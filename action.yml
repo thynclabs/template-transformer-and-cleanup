@@ -36,10 +36,3 @@ runs:
     INPUT_WORKFLOW_TOKEN: ${{ inputs.workflow_token }}
     INPUT_REPOSITORY: ${{ inputs.repository }}
     INPUT_BRANCH: ${{ inputs.branch }}
-#  args:
-#    - ${{ inputs.search-keyword }}
-#    - ${{ inputs.replace-keyword }}
-#    - ${{ inputs.github_url }}
-#    - ${{ inputs.workflow_token }}
-#    - ${{ inputs.repository }}
-#    - ${{ inputs.branch }}
