@@ -45,6 +45,9 @@ process_directory() {
 #search_keyword=$1
 #replace_keyword=$2
 
+echo "${INPUT_SEARCH_KEYWORD}"
+echo "${INPUT_REPLACE_KEYWORD}"
+
 # Process the given directory
 process_directory "./" "${INPUT_SEARCH_KEYWORD}" "${INPUT_REPLACE_KEYWORD}"
 
@@ -54,6 +57,7 @@ git config --global user.name "GitHub Actions"
 
 git status
 ls
+cat package.json
 
 git add .
 git commit -am "Replace keyword ${INPUT_SEARCH_KEYWORD} with ${INPUT_REPLACE_KEYWORD}"
