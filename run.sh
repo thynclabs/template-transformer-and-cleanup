@@ -59,7 +59,7 @@ echo "${INPUT_SEARCH_KEYWORD}"
 echo "${INPUT_REPLACE_KEYWORD}"
 
 # Process the given directory
-process_directory "./" "${INPUT_SEARCH_KEYWORD}" "${INPUT_REPLACE_KEYWORD}"
+process_directory "." "${INPUT_SEARCH_KEYWORD}" "${INPUT_REPLACE_KEYWORD}"
 ls
 
 git config --global --add safe.directory /github/workspace
