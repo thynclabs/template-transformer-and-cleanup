@@ -49,7 +49,11 @@ echo "${INPUT_SEARCH_KEYWORD}"
 echo "${INPUT_REPLACE_KEYWORD}"
 
 # Process the given directory
-process_directory "./" "${INPUT_SEARCH_KEYWORD}" "${INPUT_REPLACE_KEYWORD}"
+process_directory "/github/workspace" "${INPUT_SEARCH_KEYWORD}" "${INPUT_REPLACE_KEYWORD}"
+
+cd /github/workspace
+
+ls
 
 #git config --local --add safe.directory /github/workspace
 git config --local user.email "actions@github.com"
